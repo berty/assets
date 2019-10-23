@@ -1,0 +1,21 @@
+{{ $shown_assets := slice "jpg" "jpeg" "png" "gif" "svg" }}
+{{ $resizable_assets := slice "jpg" "jpeg" "png" "gif" }}
+
+{{ partial "head" . }}
+{{ range .Site.Taxonomies.categories }}
+<section id="{{.Page.Title}}">
+    <h1><a href="{{.Page.Permalink}}">{{ .Page.Title | title }}</a></h1>
+    {{ range .Page.RegularPages }}
+    {{ $asset := resources.Get .Params.file }}
+    {{ if in $shown_assets $asset.MediaType.SubType }}
+
+        {{ if in $resizable_assets $asset.MediaType.SubType }}
+            {{ $asset = $asset.Resize "200x" }}
+        {{ end }}
+        
+        <img style="width: 200px;" src="{{ $asset.Permalink }}">
+    {{ end }}
+    {{ end }}
+</section>
+{{ end }}
+{{ partial "foot" . }}

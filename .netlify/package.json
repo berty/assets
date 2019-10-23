@@ -1,0 +1,16 @@
+{
+  "name": "berty-assets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:pre": "node scripts/generate-content.js",
+    "build": "npm run build:pre && hugo --gc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^7.1.5"
+  }
+}
