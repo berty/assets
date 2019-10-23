@@ -1,0 +1,13 @@
+{{ $resizable_assets := slice "jpg" "jpeg" "png" }}
+
+{{ partial "head" . }}
+{{ range .RegularPages }}
+<section id="{{.Page.Title}}">
+    <h1><a>{{ .Page.Title | title }}</a></h1>
+    {{ with .Params.file }}
+    {{ $asset := resources.Get . }}
+    <img style="width: 200px;" src="{{ $asset.Permalink }}">
+    {{ end }}
+</section>
+{{ end }}
+{{ partial "foot" . }}
