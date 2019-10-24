@@ -1,25 +1,28 @@
-{{ $shown_assets := slice "jpg" "jpeg" "png" "gif" "svg" }}
-{{ $resizable_assets := slice "jpg" "jpeg" "png" }}
-
 {{ partial "head" . }}
 
-<div class="container">
-  <div class="row">
-      {{ range.Page.RegularPages }}
-      {{ $asset := resources.Get .Params.file_path }}
-      {{ if in $shown_assets $asset.MediaType.SubType }}
-    
-        {{ if in $resizable_assets $asset.MediaType.SubType }}
-          {{ $asset = $asset.Resize "200x" }}
-        {{ end }}
-    
-        <a class="d-block p-2" href="{{.RelPermalink}}">
-          <img style="max-width: 200px;" src="{{ $asset.RelPermalink }}" />
-        </a>
+{{ $categories := .Site.Taxonomies.categories }}
+{{ range $cat := .Site.Params.category_order }}
+  {{ $category := index $categories $cat }}
 
-      {{ end }}
-    {{ end }}
-  </div>
-</div>
+  {{ with $category }}
+
+  <section class="my-5">
+    <div class="container">
+      <div class="row">
+        <h1 class="font-weight-bold mb-5">
+          <a href="{{ .Page.RelPermalink }}">{{ replace .Page.Title "_" " " | title }}</a>
+        </h1>
+      </div>
+
+      <div class="row">
+        {{ partial "asset-thumbnails" (dict "assets" .Page.RegularPages) }}
+      </div>
+
+    </div>
+  </section>
+  <hr>
+
+  {{ end }}
+{{ end }}
 
 {{ partial "foot" . }}
