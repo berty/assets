@@ -16,7 +16,8 @@ if (!fs.existsSync(contentDir)){
 
 const options = {
   cwd: rootDir,
-  nodir: true
+  nodir: true,
+  ignore: ['_archives/**/*']
 };
 
 const files = glob.sync('**/*', options);
