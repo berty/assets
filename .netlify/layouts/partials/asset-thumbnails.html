@@ -13,8 +13,8 @@
       {{ $asset = $asset.Resize "200x" }}
     {{ end }}
 
-    <a class="d-block p-2" href="{{$page.RelPermalink}}">
-      <img style="max-width: 200px;" src="{{ $asset.RelPermalink }}" />
+    <a class="d-flex align-items-center p-2" href="{{$page.RelPermalink}}">
+      <img style="max-width: 100%; width: 200px" src="{{ $asset.RelPermalink }}" />
     </a>
 
   {{ end }}
