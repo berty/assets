@@ -4,7 +4,7 @@ const fs = require('fs'),
 
 const rootDir = path.join(__dirname, '../../');
 const contentDir = path.join(__dirname, '../content');
-const assetsDir = path.join(__dirname, '../assets');
+const assetsDir = path.join(__dirname, '../assets/files');
 
 const options = {
   cwd: rootDir,
@@ -12,6 +12,10 @@ const options = {
 };
 
 const files = glob.sync('**/*', options);
+
+if (!fs.existsSync(assetsDir)){
+  fs.mkdirSync(assetsDir);
+}
 
 files.forEach(file => {
   const filename = file
@@ -34,9 +38,9 @@ files.forEach(file => {
 
   let frontmatter = "---\n";
   frontmatter += `title: ${title}\n`;
-  frontmatter += `categories: ["${category}"]\n`;
   frontmatter += `breadcrumbs: [${breadcrumbs}]\n`;
-  frontmatter += `file: ${path.basename(file)}\n`;
+  frontmatter += `file_path: /files/${path.basename(file)}\n`;
+  frontmatter += `file_name: ${path.basename(file)}\n`;
   frontmatter += '---';
 
   fs.writeFileSync(path.join(contentDir, `${filename}.md`), frontmatter);
