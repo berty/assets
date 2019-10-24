@@ -1,2 +1,5 @@
 title: Berty Assets
 baseURL: https://assets.berty.tech
+
+params:
+  category_order: ['logo_official', 'animation', 'logo_variations', 'various_usage']
