@@ -6,16 +6,20 @@ const rootDir = path.join(__dirname, '../../');
 const contentDir = path.join(__dirname, '../content');
 const assetsDir = path.join(__dirname, '../assets/files');
 
+if (!fs.existsSync(assetsDir)){
+  fs.mkdirSync(assetsDir, { recursive: true });
+}
+
+if (!fs.existsSync(contentDir)){
+  fs.mkdirSync(contentDir, { recursive: true });
+}
+
 const options = {
   cwd: rootDir,
   nodir: true
 };
 
 const files = glob.sync('**/*', options);
-
-if (!fs.existsSync(assetsDir)){
-  fs.mkdirSync(assetsDir, { recursive: true });
-}
 
 files.forEach(file => {
   const filename = file
@@ -38,18 +42,5 @@ files.forEach(file => {
   frontmatter += '---';
 
   fs.writeFileSync(path.join(contentDir, `${filename}.md`), frontmatter);
-
   fs.copyFileSync(path.join(rootDir, file), path.join(assetsDir, title));
 });
-
-// helpers
-function titleCase(str) {
-  str = str.toLowerCase().split(" ");
-  let final = [];
-
-  for (let word of str) {
-    final.push(word.charAt(0).toUpperCase() + word.slice(1));
-  }
-
-  return final.join(" ");
-}
