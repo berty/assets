@@ -6,13 +6,13 @@
   <div class="d-flex flex-column text-center justify-content-center align-content-center min-vh-100">
     
     <div>
-      <img src="{{ $asset.Permalink }}">
+      <img src="{{ $asset.RelPermalink }}">
     </div>
 
     <h1>{{ .Params.file_name }}</h1>
 
     <div>
-      <a class="btn btn-primary" href="{{ $asset.Permalink }}" download>Download</a>
+      <a class="btn btn-primary" href="{{ $asset.RelPermalink }}" download>Download</a>
     </div>
   </div>
 </div>
