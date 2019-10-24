@@ -1,3 +1,14 @@
+<!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{{ .Title }}</title>
+
+        <!-- Styling -->
+        {{ $bootstrap := resources.Get "css/bootstrap.min.css" }}
+        {{ $main := resources.Get "css/main.css" }}
+        {{ $style := slice $bootstrap $main | resources.Concat "bundle.css" | minify | fingerprint }}
+        <link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}">
+    </head>
     <body>
