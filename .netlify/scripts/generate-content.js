@@ -14,7 +14,7 @@ const options = {
 const files = glob.sync('**/*', options);
 
 if (!fs.existsSync(assetsDir)){
-  fs.mkdirSync(assetsDir);
+  fs.mkdirSync(assetsDir, { recursive: true });
 }
 
 files.forEach(file => {
@@ -22,12 +22,6 @@ files.forEach(file => {
     .replace(path.extname(file), '')
     .replace(/\/+/g, '_')
     .replace(/\s+/g, '-')
-    .toLowerCase();
-
-  const category = file
-    .replace(`/${path.basename(file)}`, '')
-    .replace(/\/+/g, ' - ')
-    .replace(/\_+/g,  ' ')
     .toLowerCase();
 
   const title = path.basename(file);
