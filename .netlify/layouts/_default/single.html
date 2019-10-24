@@ -6,10 +6,10 @@
   <div class="d-flex flex-column text-center justify-content-center align-content-center min-vh-100">
     
     <div>
-      <img src="{{ $asset.RelPermalink }}">
+      <img style="max-width: 350px;" src="{{ $asset.RelPermalink }}">
     </div>
 
-    <h1>{{ .Params.file_name }}</h1>
+    <h3>{{ .Params.file_name }}</h3>
 
     <div>
       <a class="btn btn-primary" href="{{ $asset.RelPermalink }}" download>Download</a>
