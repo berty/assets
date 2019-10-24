@@ -5,8 +5,6 @@
   "main": "index.js",
   "scripts": {
     "pre-build": "node scripts/generate-content.js",
-    "build:dev": "npm run pre-build && hugo server --gc",
-    "build:prod": "npm run pre-build && hugo --gc --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

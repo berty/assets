@@ -1,6 +1,6 @@
 [build]
 publish = "public"
-command = "npm run build:prod"
+command = "npm run pre-build && hugo --gc --minify"
 
 [context.production.environment]
 HUGO_VERSION = "0.59.0"
@@ -8,13 +8,13 @@ HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 
 [context.deploy-preview]
-command = 'npm run build:prod -b $DEPLOY_PRIME_URL --enableGitInfo'
+command = 'npm run pre-build && hugo --gc --minify -b $DEPLOY_PRIME_URL --enableGitInfo'
 
 [context.deploy-preview.environment]
 HUGO_VERSION = "0.59.0"
 
 [context.branch-deploy]
-command = 'npm run build:prod -b $DEPLOY_PRIME_URL --enableGitInfo'
+command = 'npm run pre-build && hugo --gc --minify -b $DEPLOY_PRIME_URL --enableGitInfo'
 
 [context.branch-deploy.environment]
 HUGO_VERSION = "0.59.0"

@@ -1,14 +1,8 @@
 Berty Assets Website
 ===
 
-To develop run:
+To generate the content, run:
 
 ```
-npm run build:dev
-```
-
-To build for production, run:
-
-```
-npm run build:prod
+npm run pre-build
 ```
