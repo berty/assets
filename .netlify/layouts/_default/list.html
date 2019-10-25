@@ -9,9 +9,11 @@
   <section class="my-5">
     <div class="container">
       <div class="row">
-        <h1 class="font-weight-bold mb-5">
-          <a href="{{ .Page.RelPermalink }}">{{ replace .Page.Title "_" " " | title }}</a>
-        </h1>
+        <div class="col">
+          <h1 class="font-weight-bold mb-5">
+            <a href="{{ .Page.RelPermalink }}">{{ replace .Page.Title "_" " " | title }}</a>
+          </h1>
+        </div>
       </div>
 
       <div class="row">
