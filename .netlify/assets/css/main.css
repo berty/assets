@@ -1,0 +1,22 @@
+body {
+	background-color:#f8fafc;
+}
+.block {
+	background-color: #FFF;
+	border-radius:.8rem;
+	padding: 1.2rem;
+	box-shadow: 0 0 5px rgba(0,0,0,.02), 0 5px 22px -8px rgba(0,0,0,.1);
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+	height: auto;
+}
+
+a.block {
+	transition: all .8s ease;
+}
+a.block:hover {
+	box-shadow: 0 0 1px rgba(0,0,0,.03), 0 8px 26px -4px rgba(0,0,0,.1);
+    transition: all .3s ease;
+    transform: scale(1.05) translateY(-2.5%);
+} 
