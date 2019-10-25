@@ -22,9 +22,33 @@ a.block:hover {
 } 
 
 @media (min-width:1200px){
-	block {
+	.block {
 		height:255px;
 		margin-bottom:30px;
 	}
 }
 
+@media (min-width: 992px) and (max-width: 1199px){
+	.block {
+		height:255px;
+		margin-bottom:30px;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px){
+	.block {
+		height:150px;
+		margin-bottom:30px;
+	}
+}
+@media (min-width: 576px) and (max-width: 767px){
+	.block {
+		height:255px;
+		margin-bottom:30px;
+	}
+}
+@media (max-width:575px){
+	.block {
+		height:255px;
+		margin-bottom:30px;
+	}
+}
