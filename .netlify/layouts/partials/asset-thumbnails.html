@@ -13,8 +13,10 @@
       {{ $asset = $asset.Resize "200x" }}
     {{ end }}
     <div class="col-lg-2 col-md-3">
-      <a class="block align-items-center" href="{{$page.RelPermalink}}">
-        <img class="img-fluid" src="{{ $asset.RelPermalink }}" />
+      <a class="block" href="{{$page.RelPermalink}}">
+        <div class="block-inner">
+          <img src="{{ $asset.RelPermalink }}" />
+        </div>
       </a>
     </div>
 

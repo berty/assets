@@ -5,7 +5,7 @@ body {
 	display:block;
 	background-color: #FFF;
 	border-radius:.8rem;
-	padding: 6px;
+	padding: 15px;
 	box-shadow: 0 0 5px rgba(0,0,0,.02), 0 5px 22px -8px rgba(0,0,0,.1);
 	text-align: center;
 	text-decoration: none;
@@ -13,7 +13,6 @@ body {
 	height: auto;
 	margin-bottom:30px;
 }
-
 a.block {
 	transition: all .8s ease;
 }
@@ -22,11 +21,22 @@ a.block:hover {
     transition: all .3s ease;
     transform: scale(1.05) translateY(-2.5%);
 } 
+.block .block-inner {
+	display: block;
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
 .block img {
 	width:auto;
 	max-width:100%;
 	max-height:100%;
-	margin:0 auto;
+	margin:auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 @media (min-width:1200px){
 	.block {
