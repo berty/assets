@@ -1,0 +1,23 @@
+{{ $shown_assets := slice "jpg" "jpeg" "png" "gif" "svg" }}
+{{ $resizable_assets := slice "jpg" "jpeg" "png" }}
+
+{{ range .assets }}
+  {{ $page := . }}
+  {{ with .Params }}
+  {{ with .file_path }}
+
+  {{ $asset := resources.Get . }}
+  {{ if in $shown_assets $asset.MediaType.SubType }}
+
+    {{ if in $resizable_assets $asset.MediaType.SubType }}
+      {{ $asset = $asset.Resize "200x" }}
+    {{ end }}
+
+    <a class="d-flex align-items-center p-2" href="{{$page.RelPermalink}}">
+      <img style="max-width: 100%; width: 200px" src="{{ $asset.RelPermalink }}" />
+    </a>
+
+  {{ end }}
+  {{ end }}
+  {{ end }}
+{{ end }}
