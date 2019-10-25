@@ -20,3 +20,10 @@ a.block:hover {
     transition: all .3s ease;
     transform: scale(1.05) translateY(-2.5%);
 } 
+
+@media (min-width:1200px){
+	block {
+		height:255px;
+		margin-bottom:30px;
+	}
+}
