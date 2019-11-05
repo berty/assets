@@ -3,3 +3,20 @@ baseURL: https://assets.berty.tech
 
 params:
   category_order: ['logo_official', 'animation', 'logo_variations', 'various_usage']
+  
+  # Map mimetype to placeholder icons 
+  nonimage_icons:
+    plain: images/plain-icon.png
+    vnd.adobe.photoshop: images/psd-icon.png
+    postscript: images/ai-icon.png
+
+  # Show only assets with below mimetypes
+  shown_assets:
+    - "jpg" 
+    - "jpeg" 
+    - "png" 
+    - "gif" 
+    - "svg+xml" 
+    - "plain" 
+    - "vnd.adobe.photoshop" 
+    - "postscript"
