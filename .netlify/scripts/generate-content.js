@@ -28,6 +28,9 @@ const folders = glob.sync('**/', options);
 
 folders.forEach(folder => {
   
+  folder = folder
+    .replace(/.$/, '');
+
   const files = fs
     .readdirSync(path.join(rootDir, folder), { withFileTypes: true })
     .filter(item => !item.isDirectory())
@@ -37,7 +40,6 @@ folders.forEach(folder => {
     .find(file => file.startsWith('1_'));
 
   const folderId = folder
-    .replace(/.$/, '')
     .replace(/\/+/g, '-');
 
   const category = folder
@@ -47,10 +49,15 @@ folders.forEach(folder => {
     ? [mainFile]
     : files;
 
+  let parentFolder = folder.split('/');
+      parentFolder = parentFolder[parentFolder.length - 1];
+
+  const parentFolderTitle = parentFolder
+    .replace(/\_+/g, ' ');
+
   files.forEach(file => {
     const title = path.basename(file);
     const filename = folder 
-      .replace(/.$/, '')
       .replace(`${category}/`, '')
       .replace(/\/+/g, '-')
       .concat(`--${file}`);
@@ -60,6 +67,8 @@ folders.forEach(folder => {
     fm += `show_in_list: ${filesToShowinList.includes(file)}\n`;
     fm += `folder_id: ${folderId}\n`;
     fm += `categories: ["${category}"]\n`;
+    fm += `parent_folder: ${parentFolder}\n`;
+    fm += `parent_folder_title: ${parentFolderTitle}\n`;
     fm += `file_path: /files/${filename}\n`;
     fm += `file_name: ${file}\n`;
     fm += '---';
