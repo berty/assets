@@ -6,7 +6,7 @@
   <div class="d-flex flex-column text-center justify-content-center align-content-center min-vh-100">
     
     <div>
-      <img style="max-width: 800px;" src="{{ $asset.RelPermalink }}">
+      <img style="max-width: 800px;" src="{{ partial `asset-image` . }}">
     </div>
 
     <h3>{{ .Params.file_name }}</h3>
