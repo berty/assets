@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     {{ range where .RegularPages "Params.show_in_list" true }}
-      {{ partial "thumbnail" . }}
+      {{ partial "thumbnail" (dict "page" . "ctx" $) }}
     {{ end }}
   </div>
 </div>
