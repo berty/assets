@@ -38,6 +38,16 @@ a.block:hover {
     bottom: 0;
     right: 0;
 }
+.block .block-title {
+	position: absolute;
+    bottom: -10px;
+    width: 100%;
+    left: 0;
+    font-size: 12px;
+    color: #383b62;
+}
+
+
 @media (min-width:1200px){
 	.block {
 		height:160px;
