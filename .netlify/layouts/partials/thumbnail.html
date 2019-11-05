@@ -1,25 +1,19 @@
-{{ $shown_assets := slice "jpg" "jpeg" "png" "gif" "svg" }}
-{{ $resizable_assets := slice "jpg" "jpeg" "png" }}
 
 {{ $page := . }}
 {{ with .Params }}
 {{ with .file_path }}
 
-{{ $asset := resources.Get . }}
-{{ if in $shown_assets $asset.MediaType.SubType }}
+  {{ if in $.Site.Params.shown_assets $page.Params.media_type_sub }}
 
-  {{ if in $resizable_assets $asset.MediaType.SubType }}
-    {{ $size := cond (ge $asset.Width 200) 200 $asset.Width }}
-    {{ $asset = $asset.Resize (print $size "x") }}
-  {{ end }}
   <div class="col-lg-2 col-md-3">
     <a class="block" href="{{$page.RelPermalink}}">
       <div class="block-inner">
-        <img src="{{ $asset.RelPermalink }}" />
+        <img src="{{ partial `asset-image` $page | safeHTMLAttr }}" />
       </div>
     </a>
   </div>
 
-{{ end }}
+  {{ end }}
+
 {{ end }}
 {{ end }}
