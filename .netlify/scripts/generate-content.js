@@ -11,15 +11,12 @@ const assetsDir = path.join(__dirname, '../assets/files');
     fs.mkdirSync(dir, { recursive: true });
   }
 
-  fs.readdir(dir, (err, files) => {
-    if (err) throw err;
-  
-    for (const file of files) {
-      fs.unlink(path.join(dir, file), err => {
-        if (err) throw err;
-      });
-    }
-  });
+  const files = fs.readdirSync(dir);
+  for (const file of files) {
+    fs.unlink(path.join(dir, file), err => {
+      if (err) throw err;
+    });
+  }
 })
 
 const options = {
