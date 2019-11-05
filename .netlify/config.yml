@@ -9,6 +9,7 @@ params:
     plain: images/plain-icon.png
     vnd.adobe.photoshop: images/psd-icon.png
     postscript: images/ai-icon.png
+    zip: images/zip-icon.png
 
   # Show only assets with below mimetypes
   shown_assets:
@@ -20,3 +21,4 @@ params:
     - "plain"
     - "vnd.adobe.photoshop"
     - "postscript"
+    - "zip"
