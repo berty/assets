@@ -17,7 +17,9 @@
       </div>
 
       <div class="row">
-        {{ partial "asset-thumbnails" (dict "assets" .Page.RegularPages) }}
+        {{ range where .Page.RegularPages "Params.show_in_list" true }}
+          {{ partial "thumbnail" (dict "page" . "ctx" $) }}
+        {{ end }}
       </div>
 
     </div>

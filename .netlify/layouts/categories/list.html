@@ -5,7 +5,9 @@
     <h1 class="font-weight-bold">{{ replace .Title "_" " " | title }}</h1>
   </div>
   <div class="row">
-    {{ partial "asset-thumbnails" (dict "assets" .RegularPages) }}
+    {{ range where .RegularPages "Params.show_in_list" true }}
+      {{ partial "thumbnail" (dict "page" . "ctx" $) }}
+    {{ end }}
   </div>
 </div>
 
