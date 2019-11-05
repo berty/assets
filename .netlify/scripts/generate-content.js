@@ -16,35 +16,45 @@ if (!fs.existsSync(contentDir)){
 
 const options = {
   cwd: rootDir,
-  nodir: true,
-  ignore: ['_archives/**/*', 'docs/**/*', 'LICENSE', 'README.md']
+  ignore: ['_archives/**', 'docs/**', 'LICENSE', 'README.md']
 };
 
-const files = glob.sync('**/*', options);
+const folders = glob.sync('**/', options);
 
-files.forEach(file => {
-  const filename = file
-    .replace(path.extname(file), '')
-    .replace(/\/+/g, '_')
-    .replace(/\s+/g, '-')
-    .toLowerCase();
+folders.forEach(folder => {
+  
+  const files = fs
+    .readdirSync(path.join(rootDir, folder), { withFileTypes: true })
+    .filter(item => !item.isDirectory())
+    .map(file => file.name)
 
-  const title = path.basename(file);
+  const mainFile = files
+    .find(file => file.startsWith('1_'));
 
-  const breadcrumbs = file
-    .split('/')
-    .map(crumb => `"${crumb}"`);
+  const folderId = folder
+    .replace(/.$/, '')
+    .replace(/\/+/g, '-');
 
-  const category = breadcrumbs[0];
+  const category = folder
+    .split('/')[0];
 
-  let frontmatter = "---\n";
-  frontmatter += `title: ${title}\n`;
-  frontmatter += `categories: [${category}]\n`;
-  frontmatter += `breadcrumbs: [${breadcrumbs}]\n`;
-  frontmatter += `file_path: /files/${path.basename(file)}\n`;
-  frontmatter += `file_name: ${path.basename(file)}\n`;
-  frontmatter += '---';
+  const filesToShowinList = mainFile
+    ? [mainFile]
+    : files;
 
-  fs.writeFileSync(path.join(contentDir, `${filename}.md`), frontmatter);
-  fs.copyFileSync(path.join(rootDir, file), path.join(assetsDir, title));
+  files.forEach(file => {
+    const title = path.basename(file);
+
+    let fm = "---\n";
+    fm += `title: ${title}\n`;
+    fm += `show_in_list: ${filesToShowinList.includes(file)}\n`;
+    fm += `folder_id: ${folderId}\n`;
+    fm += `categories: ["${category}"]\n`;
+    fm += `file_path: /files/${file}\n`;
+    fm += `file_name: ${file}\n`;
+    fm += '---';
+
+    fs.writeFileSync(path.join(contentDir, `${title}.md`), fm);
+    fs.copyFileSync(path.join(rootDir, folder, file), path.join(assetsDir, file));
+  })
 });
