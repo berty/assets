@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "glob": "^7.1.5"
+    "glob": "^7.1.5",
+    "mime-types": "^2.1.24"
   }
 }

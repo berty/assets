@@ -1,6 +1,7 @@
 const fs = require('fs'),
       glob = require('glob'),
-      path = require('path');
+      path = require('path'),
+      mime = require('mime-types');
 
 const rootDir = path.join(__dirname, '../../');
 const contentDir = path.join(__dirname, '../content');
@@ -62,11 +63,29 @@ folders.forEach(folder => {
       .replace(/\/+/g, '-')
       .concat(`--${file}`);
 
+    let mediaType = mime.lookup(file);
+
+    // Handle unrecognized extensions, else stop
+    if (!mediaType) {
+      if (file.endsWith('.sketch')) {
+        mediaType = 'application/sketch';
+      } else {
+        return;
+      }
+    }
+    
+    const mediaTypeSplit = mediaType.split('/'),
+          mediaMainType = mediaTypeSplit[0],
+          mediaSubType = mediaTypeSplit[1];
+
     let fm = "---\n";
     fm += `title: ${title}\n`;
     fm += `show_in_list: ${filesToShowinList.includes(file)}\n`;
     fm += `folder_id: ${folderId}\n`;
     fm += `categories: ["${category}"]\n`;
+    fm += `media_type: ${mediaType}\n`;
+    fm += `media_type_main: ${mediaMainType}\n`;
+    fm += `media_type_sub: ${mediaSubType}\n`;
     fm += `parent_folder: ${parentFolder}\n`;
     fm += `parent_folder_title: ${parentFolderTitle}\n`;
     fm += `file_path: /files/${filename}\n`;
