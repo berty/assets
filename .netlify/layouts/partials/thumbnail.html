@@ -9,7 +9,8 @@
 {{ if in $shown_assets $asset.MediaType.SubType }}
 
   {{ if in $resizable_assets $asset.MediaType.SubType }}
-    {{ $asset = $asset.Resize "200x" }}
+    {{ $size := cond (ge $asset.Width 200) 200 $asset.Width }}
+    {{ $asset = $asset.Resize (print $size "x") }}
   {{ end }}
   <div class="col-lg-2 col-md-3">
     <a class="block" href="{{$page.RelPermalink}}">
