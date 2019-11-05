@@ -6,13 +6,21 @@ const rootDir = path.join(__dirname, '../../');
 const contentDir = path.join(__dirname, '../content');
 const assetsDir = path.join(__dirname, '../assets/files');
 
-if (!fs.existsSync(assetsDir)){
-  fs.mkdirSync(assetsDir, { recursive: true });
-}
+[contentDir, assetsDir].forEach(dir => {
+  if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir, { recursive: true });
+  }
 
-if (!fs.existsSync(contentDir)){
-  fs.mkdirSync(contentDir, { recursive: true });
-}
+  fs.readdir(dir, (err, files) => {
+    if (err) throw err;
+  
+    for (const file of files) {
+      fs.unlink(path.join(dir, file), err => {
+        if (err) throw err;
+      });
+    }
+  });
+})
 
 const options = {
   cwd: rootDir,
@@ -44,17 +52,22 @@ folders.forEach(folder => {
 
   files.forEach(file => {
     const title = path.basename(file);
+    const filename = folder 
+      .replace(/.$/, '')
+      .replace(`${category}/`, '')
+      .replace(/\/+/g, '-')
+      .concat(`--${file}`);
 
     let fm = "---\n";
     fm += `title: ${title}\n`;
     fm += `show_in_list: ${filesToShowinList.includes(file)}\n`;
     fm += `folder_id: ${folderId}\n`;
     fm += `categories: ["${category}"]\n`;
-    fm += `file_path: /files/${file}\n`;
+    fm += `file_path: /files/${filename}\n`;
     fm += `file_name: ${file}\n`;
     fm += '---';
 
-    fs.writeFileSync(path.join(contentDir, `${title}.md`), fm);
-    fs.copyFileSync(path.join(rootDir, folder, file), path.join(assetsDir, file));
+    fs.writeFileSync(path.join(contentDir, `${filename}.md`), fm);
+    fs.copyFileSync(path.join(rootDir, folder, file), path.join(assetsDir, filename));
   })
 });
