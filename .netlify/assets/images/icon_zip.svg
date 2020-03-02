@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="131px" height="131px" viewBox="0 0 131 131" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>slice</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M60,0 L100,40 L100,106 C100,113.731986 93.7319865,120 86,120 L14,120 C6.2680135,120 0,113.731986 0,106 L0,14 C0,6.2680135 6.2680135,0 14,0 L60,0 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Zip_file" transform="translate(16.000000, 5.000000)">
+            <g id="Main">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#A3B0BF" xlink:href="#path-1"></use>
+                <polyline id="Path-2" stroke="#758CA2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)" points="30 0 30 18.0044639 37 22 30 26 35 29.5 35 48.5"></polyline>
+            </g>
+            <path d="M60,0 L85.2928932,0 C93.0248797,0 100,6.97512028 100,14.7071068 L100,40 L60,0 Z" id="Corner" fill="#758B9F" transform="translate(80.000000, 20.000000) scale(-1, -1) translate(-80.000000, -20.000000) "></path>
+            <g id="Zipper" transform="translate(29.000000, 46.000000)">
+                <rect id="Rectangle-2" fill="#758B9F" x="0" y="0" width="12" height="22" rx="3.6"></rect>
+                <rect id="Rectangle-2-Copy" fill="#667A8A" x="4" y="5" width="4" height="12" rx="1.5"></rect>
+            </g>
+        </g>
+        <text id="ZIP" font-family="MaisonNeueMonoTrial-Bold, Maison Neue Mono Trial" font-size="22" font-weight="bold" letter-spacing="1.5" fill="#758CA2">
+            <tspan x="43.3" y="101">ZIP</tspan>
+        </text>
+    </g>
+</svg>
