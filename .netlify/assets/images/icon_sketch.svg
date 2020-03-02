@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="131px" height="131px" viewBox="0 0 131 131" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>slice</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M60,0 L100,40 L100,106 C100,113.731986 93.7319865,120 86,120 L14,120 C6.2680135,120 0,113.731986 0,106 L0,14 C0,6.2680135 6.2680135,0 14,0 L60,0 Z" id="path-1"></path>
+        <path d="M60,0 L100,40 L100,106 C100,113.731986 93.7319865,120 86,120 L14,120 C6.2680135,120 0,113.731986 0,106 L0,14 C0,6.2680135 6.2680135,0 14,0 L60,0 Z" id="path-3"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Sketch" transform="translate(16.000000, 5.000000)">
+            <g id="MAin+zip">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFCF5C" xlink:href="#path-1"></use>
+                <polyline id="Path-2" stroke="#758CA2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)" points="30 0 30 28.0044639 37 32 30 36 35 39.5 35 48.5"></polyline>
+            </g>
+            <g id="Main">
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <use id="Mask" fill="#FDB30B" xlink:href="#path-3"></use>
+            </g>
+            <path d="M60,0 L85.2928932,0 C93.0248797,0 100,6.97512028 100,14.7071068 L100,40 L60,0 Z" id="Corner" fill="#FCA402" transform="translate(80.000000, 20.000000) scale(-1, -1) translate(-80.000000, -20.000000) "></path>
+            <g id="Sketch_ICON" transform="translate(24.000000, 51.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                <polygon id="Path-3" points="26.0291015 0.0937890915 11.613586 1.43559239 10.9244175 16.514082"></polygon>
+                <polygon id="Path-3-Copy" transform="translate(33.709572, 8.303936) scale(-1, 1) translate(-33.709572, -8.303936) " points="41.2619138 0.0937890915 26.8463984 1.43559239 26.1572299 16.514082"></polygon>
+                <polygon id="Path-5" points="11.0382698 16.8233036 41.2508544 16.8233036 26.1742349 46.401625"></polygon>
+                <polygon id="Left" points="0.360613675 16.5955886 11.5335119 1.72318331 11.0411 16.5955886"></polygon>
+                <polygon id="Left-Copy" transform="translate(46.112690, 9.207077) scale(-1, 1) translate(-46.112690, -9.207077) " points="40.620833 16.545845 51.6045477 1.77087407 51.1121358 16.6432794"></polygon>
+                <polygon id="Path-2" points="11.0382698 16.5396938 41.1241713 16.5396938 26.0812206 0.293148566"></polygon>
+                <polygon id="Path-4" points="26.1260002 46.7837891 10.9412544 16.6902282 0.199193086 16.6902282"></polygon>
+                <polygon id="Path-4-Copy" transform="translate(38.937107, 31.671567) scale(-1, 1) translate(-38.937107, -31.671567) " points="51.8238977 46.7183476 36.6391519 16.6247867 26.0503168 16.6247867"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
