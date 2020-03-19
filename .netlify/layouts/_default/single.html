@@ -1,11 +1,22 @@
 {{ $asset := resources.Get .Params.file_path }}
 
+{{ .Scratch.Set "body-class" "page-single wh" }}
+
 {{ partial "head" . }}
 
-<div class="container">
-  <div class="d-flex flex-column text-center justify-content-center align-content-center min-vh-100">
-    
-    <div>
+<header class="header-rounded large {{ if .Params.Hclass }}{{.Params.Hclass}}{{ else }}bg-blue gradient{{ end }}">
+  <div class="container text-center">
+    <h1 class="text-shadow">{{.Title}}</h1>
+    {{ if .Params.Subtitle }}
+    <h3 class="text-shadow subtitle">{{.Params.Subtitle | markdownify }}</h3>
+    {{ end }}
+  </div><!-- /.container -->
+</header>
+
+<div class="content">
+  <div class="container">
+
+  <div>
       <img style="max-width: 800px;" src="{{ partial `asset-image` . }}">
     </div>
 
@@ -32,7 +43,8 @@
     </div>
     {{ end }}
 
-  </div>
+  </div><!-- /.container -->
 </div>
 
-{{ partial "foot" . }}
+{{ partial "footer" . }}
+

@@ -14,9 +14,8 @@
         {{ $style := slice $bootstrap $fontAwesome $berty $main | resources.Concat "bundle.scss" | toCSS (dict "outputStyle" "compressed")| postCSS | minify | fingerprint }}
         {{ $styleContent := replace $style.Content "!important" "" }}
         {{ $styleContent := replace $styleContent `@charset "UTF-8";` `` }} <!-- Reason for this line is because for an unknown reason it prefixes the CSS output with '@charset "UTF-8"' -->
-        <style>
+        <style {{ if ($.Scratch.Get `isAmpPage`) }}amp-custom{{end}}>
             {{ $styleContent | safeCSS }}
-            {{ (resources.Get "/css/syntax.css" | resources.Minify).Content | safeCSS }}
         </style>
 
         <!-- load fonts -->
@@ -25,5 +24,4 @@
     </head>
     <body{{with .Scratch.Get "body-class"}} class="{{.}}"{{end}} tabindex="-1" role="dialog">
 
-    {{ partial "sidebar.html" . }}
     {{ partial "navbar.html" . }}
