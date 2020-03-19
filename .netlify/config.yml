@@ -2,14 +2,14 @@ title: Berty Assets
 baseURL: https://assets.berty.tech
 
 params:
-  category_order: ['logo_official', 'animation', 'logo_variations', 'various_usage']
+  category_order: ['logo_official', 'animation', 'logo_variations', 'various_usage', 'icons']
 
   # Map mimetype to placeholder icons
   nonimage_icons:
-    plain: images/plain-icon.png
-    vnd.adobe.photoshop: images/psd-icon.png
-    postscript: images/ai-icon.png
-    zip: images/zip-icon.png
+    plain: images/icon_txt.svg
+    vnd.adobe.photoshop: images/icon_psd.svg
+    postscript: images/icon_ai.svg
+    zip: images/icon_zip.svg
 
   # Show only assets with below mimetypes
   shown_assets:
@@ -22,3 +22,5 @@ params:
     - "vnd.adobe.photoshop"
     - "postscript"
     - "zip"
+
+relativeURLs: true
