@@ -1,0 +1,29 @@
+{{ $page := .page }}
+{{ $ctx := .ctx}}
+{{ with $page.Params }}
+{{ with .file_path }}
+
+  {{ if in $ctx.Site.Params.shown_assets $page.Params.media_type_sub }}
+
+  <div class="col-12">
+
+    <a class="block block-details" href="{{$page.RelPermalink}}">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="{{ partial `asset-image` $page | safeHTMLAttr }}" />
+        </div><!-- /.col -->
+        <div class="col-md-4">
+          <span class="block-title">{{ $page.Params.title }}</span>
+        </div><!-- /.col -->
+        <div class="col-md-4">
+          btn download
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </a>
+
+  </div>
+
+  {{ end }}
+
+{{ end }}
+{{ end }}
