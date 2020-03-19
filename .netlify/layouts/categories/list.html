@@ -6,9 +6,9 @@
   </div>
   <div class="row">
     {{ range where .RegularPages "Params.show_in_list" true }}
-      {{ partial "blcok_thumbnail" (dict "page" . "ctx" $) }}
+      {{ partial "block_thumbnail" (dict "page" . "ctx" $) }}
     {{ end }}
   </div>
 </div>
 
-{{ partial "foot" . }}
+{{ partial "footer" . }}
