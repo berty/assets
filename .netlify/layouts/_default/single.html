@@ -25,7 +25,7 @@
 
       {{ range where .Site.RegularPages "Params.folder_id" .Params.folder_id }}
         {{ if ne .Params.file_name $.Params.file_name }}
-        {{ partial "thumbnail" (dict "page" . "ctx" $) }}
+        {{ partial "block_details" (dict "page" . "ctx" $) }}
         {{ end }}
       {{ end }}
 

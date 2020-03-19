@@ -3,12 +3,27 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="pinterest" content="nopin">
         <title>{{ .Title }}</title>
 
         <!-- Styling -->
-        {{ $bootstrap := resources.Get "css/bootstrap.min.css" }}
-        {{ $main := resources.Get "css/main.css" }}
-        {{ $style := slice $bootstrap $main | resources.Concat "bundle.css" | minify | fingerprint }}
-        <link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}">
+        {{ $bootstrap := resources.Get "/css/bootstrap.min.scss" }}
+        {{ $fontAwesome := resources.Get "/css/fontawesome.scss" }}
+        {{ $berty := resources.Get "/css/berty.scss" }}
+        {{ $main := resources.Get "/css/main.scss" }}
+        {{ $style := slice $bootstrap $fontAwesome $berty $main | resources.Concat "bundle.scss" | toCSS (dict "outputStyle" "compressed")| postCSS | minify | fingerprint }}
+        {{ $styleContent := replace $style.Content "!important" "" }}
+        {{ $styleContent := replace $styleContent `@charset "UTF-8";` `` }} <!-- Reason for this line is because for an unknown reason it prefixes the CSS output with '@charset "UTF-8"' -->
+        <style>
+            {{ $styleContent | safeCSS }}
+            {{ (resources.Get "/css/syntax.css" | resources.Minify).Content | safeCSS }}
+        </style>
+
+        <!-- load fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap" rel="stylesheet">
+
     </head>
-    <body>
+    <body{{with .Scratch.Get "body-class"}} class="{{.}}"{{end}} tabindex="-1" role="dialog">
+
+    {{ partial "sidebar.html" . }}
+    {{ partial "navbar.html" . }}
