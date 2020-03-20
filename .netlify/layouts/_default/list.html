@@ -1,31 +1,42 @@
+{{ .Scratch.Set "body-class" "page-single wh" }}
+
 {{ partial "head" . }}
 
-{{ $categories := .Site.Taxonomies.categories }}
-{{ range $cat := .Site.Params.category_order }}
-  {{ $category := index $categories $cat }}
+<header class="header-rounded large bg-blue gradient bg-assets">
+  <div class="container text-center">
+    <h1 class="text-shadow">Assets</h1>
+    <h3 class="text-shadow subtitle">All the Berty graphical resources</h3>
+  </div><!-- /.container -->
+</header>
 
-  {{ with $category }}
+<div class="content">
+  <div class="container">
 
-  <section class="my-5">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h2 class="mb-3">
-            <a href="{{ .Page.RelPermalink }}">{{ replace .Page.Title "_" " " | title }}</a>
-          </h2>
-        </div>
-      </div>
+    {{ $categories := .Site.Taxonomies.categories }}
+    {{ range $cat := .Site.Params.category_order }}
+      {{ $category := index $categories $cat }}
 
-      <div class="row">
-        {{ range where .Page.RegularPages "Params.show_in_list" true }}
-          {{ partial "block_thumbnail" (dict "page" . "ctx" $) }}
-        {{ end }}
-      </div>
+      {{ with $category }}
 
-    </div>
-  </section>
+      <section class="my-5">
+          <div class="row">
+            <div class="col">
+              <h2 class="mb-3">
+                <a href="{{ .Page.RelPermalink }}">{{ replace .Page.Title "_" " " | title }}</a>
+              </h2>
+            </div>
+          </div>
+          <div class="row">
+            {{ range where .Page.RegularPages "Params.show_in_list" true }}
+              {{ partial "block_thumbnail" (dict "page" . "ctx" $) }}
+            {{ end }}
+          </div>
+      </section>
 
-  {{ end }}
-{{ end }}
+      {{ end }}
+    {{ end }}
+
+  </div><!-- /.container -->
+</div><!-- /.content -->
 
 {{ partial "footer" . }}

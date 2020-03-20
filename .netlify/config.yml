@@ -8,7 +8,7 @@ author:
 
 
 params:
-  category_order: ['logo_official', 'animation', 'logo_variations', 'app_icons', 'avatars', 'website', 'various_usage', 'icons']
+  category_order: ['logo_official', 'animation', 'logo_variations', 'app_icons', 'avatars', 'thumbnails', 'website', 'various_usage', 'icons']
 
   # Map mimetype to placeholder icons
   nonimage_icons:
@@ -38,6 +38,6 @@ params:
 
   logoSVG: /img/berty_logo.svg
   logoPNG: /img/berty_logo.png
-  defaultFeaturedImage: /img/berty_assets.png
+  defaultFeaturedImage: images/berty_assets.png
 
 relativeURLs: true

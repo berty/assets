@@ -111,17 +111,17 @@ amp-img {
 .bg-assets:before {
   content:"";
   position:absolute;
-  top:-40px;
+  top:-20px;
   right:30px;
-  width:600px;
-  height:600px;
+  width:550px;
+  height:550px;
   background-repeat:no-repeat;
   background-size:100%;
   opacity:0.5; 
 }
 .bg-assets:before {
-  background-image:url(../img/bg_about.svg); 
-  transform: rotate(5deg);
+  background-image:url(../img/bg_assets.svg); 
+  transform: rotate(10deg);
 }
 /* BACKGROUNDS */
 

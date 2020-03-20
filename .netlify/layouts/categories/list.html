@@ -1,14 +1,28 @@
+{{ .Scratch.Set "body-class" "page-single wh" }}
+
 {{ partial "head" . }}
 
-<div class="container">
-  <div class="row">
-    <h1 class="font-weight-bold">{{ replace .Title "_" " " | title }}</h1>
-  </div>
+<header class="header-rounded large bg-blue gradient bg-assets">
+  <div class="container">
+    <div class="subnav">
+       <a class="btn btn-bty btn-transparent" href="/"><i class="far fa-arrow-left"></i>Back to list</a>
+    </div><!-- /.subnav -->
+  </div><!-- /.container -->
+    <div class="container text-center">
+    <h1 class="text-shadow">{{ replace .Title "_" " " | title }}</h1>
+  </div><!-- /.container -->
+</header>
+
+<div class="content">
+  <div class="container">
+
   <div class="row">
     {{ range where .RegularPages "Params.show_in_list" true }}
       {{ partial "block_thumbnail" (dict "page" . "ctx" $) }}
     {{ end }}
   </div>
-</div>
+
+  </div><!-- /.container -->
+</div><!-- /.content -->
 
 {{ partial "footer" . }}
