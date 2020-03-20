@@ -1,4 +1,4 @@
-.block {
+.block-thumbnail {
 	background-color: #FFF;
 	padding: 15px 15px 30px 15px;
 	text-align: center;
@@ -7,21 +7,21 @@
 	height: auto;
 	margin-bottom:30px;
 }
-a.block {
+a.block-thumbnail {
 	transition: all .8s ease;
 }
-a.block:hover {
+a.block-thumbnail:hover {
 	box-shadow: 0 0 1px rgba(0,0,0,.03), 0 8px 26px -4px rgba(0,0,0,.1);
     transition: all .3s ease;
     transform: scale(1.05) translateY(-2.5%);
 } 
-.block .block-inner {
+.block-thumbnail .block-inner {
 	display: block;
     width: 100%;
     position: relative;
     height: 100%;
 }
-.block img {
+.block-thumbnail img {
 	width:auto;
 	max-width:100%;
 	max-height:100%;
@@ -31,8 +31,9 @@ a.block:hover {
     left: 0;
     bottom: 0;
     right: 0;
+    border-radius:8px;
 }
-.block .block-title {
+.block-thumbnail .block-title {
 	position: absolute;
     bottom: -22px;
     width: 100%;
@@ -41,29 +42,90 @@ a.block:hover {
     color: #383b62;
 }
 
-
 @media (min-width:1200px){
-	.block {
+	.block-thumbnail {
 		height:175px;
 	}
 }
 @media (min-width: 992px) and (max-width: 1199px){
-	.block {
+	.block-thumbnail {
 		height:145px;
 	}
 }
 @media (min-width: 768px) and (max-width: 991px){
-	.block {
+	.block-thumbnail {
 		height:165px;
 	}
 }
 @media (min-width: 576px) and (max-width: 767px){
-	.block {
+	.block-thumbnail {
 		height:255px;
 	}
 }
 @media (max-width:575px){
-	.block {
+	.block-thumbnail {
 		height:197px;
+	}
+}
+
+.block-details {
+	padding:0;
+	.block-details-image {
+		display:block;
+		margin:30px 0 30px 40px;
+		height:60px;
+		img {
+			height:100%;
+			width:auto;
+			border-radius:8px;
+		}
+	}
+	.block-details-info {
+		color:#383b62;
+		padding:45px 0 40px 20px;
+		font-size:1rem;
+	}
+	.block-details-button {
+		padding: 38px 40px 38px 5px;
+		text-align:right;
+	}
+	&:hover,
+	&:focus {
+		text-decoration:none;
+		.btn-bty {
+			color: #fff;
+    		background-color: #3f49ea;
+    	}
+	}
+}
+.block-large {
+	text-align:center;
+	img {
+		background-image: url(../img/bg_grid.png);
+    	background-color: rgba(56,59,98,.06);
+    	width:100%;
+    	display:block;
+    	border-radius:8px;
+	}
+}
+.section-main {
+	margin:-120px 0 100px;
+	.block-details {
+		position:absolute;
+		width:96%;
+		bottom:0;
+		right:15px;
+	}
+}
+.section-related {
+	.block-details {
+		margin-bottom: 40px;
+		-webkit-transition: 0.3s ease-in-out;
+    	-moz-transition: 0.3s ease-in-out;
+    	transition:0.3s ease-in-out;
+    	&:hover {
+      		transform: translateY(-5px);
+      		box-shadow:$box-shadow-hover;
+    	}
 	}
 }

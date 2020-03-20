@@ -9,19 +9,25 @@
 
     <a class="block block-details" href="{{$page.RelPermalink}}">
       <div class="row">
-        <div class="col-md-4">
-          <img src="{{ partial `asset-image` $page | safeHTMLAttr }}" />
+        <div class="col-md-5">
+          <div class="block-details-image">
+            <img src="{{ partial `asset-image` $page | safeHTMLAttr }}" />
+          </div>
         </div><!-- /.col -->
         <div class="col-md-4">
-          <span class="block-title">{{ $page.Params.title }}</span>
+          <div class="block-details-info">
+            {{ $page.Params.title }}
+          </div>
         </div><!-- /.col -->
-        <div class="col-md-4">
-          btn download
+        <div class="col-md-3">
+          <div class="block-details-button">
+            <button class="btn btn-bty btn-blue icon-left"><i class="far fa-arrow-circle-down"></i>Download file</button>
+          </div>
         </div><!-- /.col -->
       </div><!-- /.row -->
     </a>
 
-  </div>
+  </div><!-- /.col -->
 
   {{ end }}
 
