@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark{{with .Scratch.Get "navbar-class"}} {{.}}{{end}}">
     <div class="container">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="https://berty.tech">
             {{ partial "img" (dict "ctx" . "class" "img-berty" "width" "150" "height" "45" "alt" "Berty Technologies" "src" "/img/berty_mono.svg")}}  
         </a>
         <button on="tap:sidebar.open" class="navbar-toggler" type="button" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,6 +34,11 @@
                         <i class="fal fa-stars c-blue"></i>
                         <span class="title">Features</span>
                         <span class="subtitle">Group conversations, offline messaging...</span>
+                      </a>
+                      <a class="dropdown-item l" href="https://berty.tech/challenges">
+                        <i class="fal fa-rocket c-blue"></i>
+                        <span class="title">Challenges</span>
+                        <span class="subtitle">Technicals, humans and more</span>
                       </a>
                       <a class="dropdown-item l" href="https://berty.tech/faq">
                         <i class="fal fa-question-circle c-blue"></i>
@@ -108,6 +113,11 @@
                         <i class="fal fa-newspaper c-blue"></i>
                         <span class="title">Press</span>
                         <span class="subtitle">Press documents and medias</span>
+                      </a>
+                      <a class="dropdown-item l" href="/">
+                        <i class="fal fa-photo-video c-blue"></i>
+                        <span class="title">Assets</span>
+                        <span class="subtitle">Logos, icons, pictures...</span>
                       </a>
                       <!--<div class="dropdown-divider"></div>
                       <a class="dropdown-item l ff" href="/download">
