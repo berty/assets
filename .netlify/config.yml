@@ -1,8 +1,14 @@
 title: Berty Assets
 baseURL: https://assets.berty.tech
 
+author:
+  name: Berty Technologies
+  email: contact@berty.tech
+  logo: /img/berty_logo.png
+
+
 params:
-  category_order: ['logo_official', 'animation', 'logo_variations', 'various_usage', 'icons']
+  category_order: ['logo_official', 'animation', 'logo_variations', 'app_icons', 'avatars', 'website', 'various_usage', 'icons']
 
   # Map mimetype to placeholder icons
   nonimage_icons:
@@ -10,6 +16,7 @@ params:
     vnd.adobe.photoshop: images/icon_psd.svg
     postscript: images/icon_ai.svg
     zip: images/icon_zip.svg
+    sketch: images/icon_sketch.svg
 
   # Show only assets with below mimetypes
   shown_assets:
@@ -22,5 +29,15 @@ params:
     - "vnd.adobe.photoshop"
     - "postscript"
     - "zip"
+    - "sketch"
+
+  organizationName: Berty Technologies
+  organizationLogo: /img/berty_logo_square-1200x1200.png
+
+  navbarLogo: /img/berty_logo.svg
+
+  logoSVG: /img/berty_logo.svg
+  logoPNG: /img/berty_logo.png
+  defaultFeaturedImage: /img/berty_assets.png
 
 relativeURLs: true
