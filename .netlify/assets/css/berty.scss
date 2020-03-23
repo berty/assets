@@ -48,7 +48,7 @@ label:focus,
 .btn:active,
 .btn.active,
 .form-control:focus {
-    outline:0px !important;
+    outline:0 !important;
     -webkit-appearance:none;
     box-shadow: none !important;
 }
@@ -117,14 +117,12 @@ amp-img {
   height:550px;
   background-repeat:no-repeat;
   background-size:100%;
-  opacity:0.5; 
-}
-.bg-assets:before {
-  background-image:url(../img/bg_assets.svg); 
+  opacity:0.5;
+  background-image:url(../img/bg_assets.svg);
   transform: rotate(10deg);
 }
 .page-category .bg-assets:before {
-  background-image:url(../../img/bg_assets.svg); 
+  background-image:url(../../img/bg_assets.svg);
 }
 /* BACKGROUNDS */
 
@@ -193,7 +191,6 @@ amp-img {
           opacity:0.7;
           display:block;
           margin-top:-3px;
-          display:block;
         }
         &.ff {
           padding-bottom:10px;
@@ -259,12 +256,12 @@ amp-sidebar {
     margin: 21px 69px 15px 23px;
   }
   .nav {
-    margin:10px 10px 30px 10px;
+    margin:10px 10px 30px;
     min-width: 170px;
     font-size:17px;
   }
   .nav-section {
-    margin:25px 15px 0 15px;
+    margin:25px 15px 0;
   }
   .nav-item {
     margin:0 14px;
@@ -403,7 +400,7 @@ a.btn.btn-black {
 /* HEADER ROUNDED */
 header.header-rounded {
   /*margin:-72px -10px 0 -10px;*/
-  margin:-78px 0 0 0;
+  margin:-78px 0 0;
   color:$color-white;
   border-radius:0 0 50px 50px;
   position:relative;
@@ -648,18 +645,16 @@ footer {
     position:relative;
     padding:95px 0 70px;
   }
-  .text-white a {
-    color:rgba(255,255,255,0.7) !important;
-    .fake-icon {
-      opacity:0.7;
-    }
-  }
   .text-white {
     color:rgba(255,255,255,0.7) !important;
     .list-unstyled a{
       color:rgba(255,255,255,0.5) !important;
     }
     a {
+      color:rgba(255,255,255,0.7) !important;
+      .fake-icon {
+        opacity:0.7;
+      }
       &:hover,
       &:focus {
         color:$color-white !important;
@@ -724,7 +719,7 @@ footer {
       margin-bottom:60px;
     }
   }
-  .page-fake header.header-rounded.large {  
+  .page-fake header.header-rounded.large {
     min-height:0;
     h1 {
       margin-bottom:45px;

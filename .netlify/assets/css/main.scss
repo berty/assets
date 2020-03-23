@@ -1,6 +1,6 @@
 .block-thumbnail {
 	background-color: #FFF;
-	padding: 15px 15px 30px 15px;
+	padding: 15px 15px 30px;
 	text-align: center;
 	text-decoration: none;
 	width: 100%;
@@ -14,7 +14,7 @@ a.block-thumbnail:hover {
 	box-shadow: 0 0 1px rgba(0,0,0,.03), 0 8px 26px -4px rgba(0,0,0,.1);
     transition: all .3s ease;
     transform: scale(1.05) translateY(-2.5%);
-} 
+}
 .block-thumbnail .block-inner {
 	display: block;
     width: 100%;
@@ -217,10 +217,10 @@ h2.category-title {
 	.section-single {
 		.block-details {
 			.block-details-info {
-    			padding: 25px 20px 10px 20px;
+    			padding: 25px 20px 10px;
 			}
 			.block-details-button {
-    			padding: 10px 20px 25px 20px;
+    			padding: 10px 20px 25px;
     			text-align:left;
 			}
 		}
