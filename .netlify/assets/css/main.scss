@@ -108,7 +108,7 @@ a.block-thumbnail:hover {
     	border-radius:8px;
 	}
 }
-.section-main {
+.section-single {
 	margin:-120px 0 100px;
 	.block-details {
 		position:absolute;
@@ -127,5 +127,21 @@ a.block-thumbnail:hover {
       		transform: translateY(-5px);
       		box-shadow:$box-shadow-hover;
     	}
+	}
+}
+.section-assets {
+  margin:-50px 0 50px;
+}
+.section-category {
+  margin:-50px 0 50px;
+}
+h2.category-title {
+	padding:150px 0 50px;
+	a {
+		color: #383b62;
+		&:hover,
+		&:focus {
+			color:#3f49ea;
+		}
 	}
 }

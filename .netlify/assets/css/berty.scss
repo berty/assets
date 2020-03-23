@@ -123,6 +123,9 @@ amp-img {
   background-image:url(../img/bg_assets.svg); 
   transform: rotate(10deg);
 }
+.page-category .bg-assets:before {
+  background-image:url(../../img/bg_assets.svg); 
+}
 /* BACKGROUNDS */
 
 /* NAVBAR */
