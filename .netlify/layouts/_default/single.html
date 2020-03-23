@@ -23,14 +23,14 @@
           </div>
         </div><!-- /.col -->
         <div class="col-md-7">
-          <div class="block block-details bg-white">
+          <div class="block-details">
             <div class="row">
-              <div class="col-md-7">
+              <div class="col-lg-7">
                 <div class="block-details-info">
                   {{ .Params.file_name }}
                 </div>
               </div><!-- /.col -->
-              <div class="col-md-5">
+              <div class="col-lg-5">
                 <div class="block-details-button">
                   <a class="btn btn-bty btn-blue icon-left" href="{{ $asset.RelPermalink }}"><i class="far fa-arrow-circle-down"></i>Download file</a>
                 </div>
@@ -59,6 +59,8 @@
     </div>
     {{ end }}
     </section>
+
+    <section class="section-actions d-none"> <a class="block block-action bg-blue bg-gradient" href="/"> <h4><i class="far fa-arrow-left left"></i>Back to list</h4> </a> </section>
 
   </div><!-- /.container -->
 </div><!-- /.content -->
