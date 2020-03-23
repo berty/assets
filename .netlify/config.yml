@@ -8,7 +8,7 @@ author:
 
 
 params:
-  category_order: ['logo_official', 'animation', 'logo_variations', 'app_icons', 'avatars', 'thumbnails', 'website', 'various_usage', 'icons']
+  category_order: ['logo_official', 'animation', 'logo_variations', 'app_icons', 'favicons', 'avatars', 'thumbnails', 'website', 'various_usage', 'file_icons']
 
   # Map mimetype to placeholder icons
   nonimage_icons:
