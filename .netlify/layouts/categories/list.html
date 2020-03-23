@@ -1,4 +1,4 @@
-{{ .Scratch.Set "body-class" "page-single wh" }}
+{{ .Scratch.Set "body-class" "page-single wh page-category" }}
 
 {{ partial "head" . }}
 
@@ -15,13 +15,13 @@
 
 <div class="content">
   <div class="container">
-
-  <div class="row">
-    {{ range where .RegularPages "Params.show_in_list" true }}
-      {{ partial "block_thumbnail" (dict "page" . "ctx" $) }}
-    {{ end }}
-  </div>
-
+	<section class="section-category">
+	  <div class="row">
+	    {{ range where .RegularPages "Params.show_in_list" true }}
+	      {{ partial "block_thumbnail" (dict "page" . "ctx" $) }}
+	    {{ end }}
+	  </div>
+	</section>
   </div><!-- /.container -->
 </div><!-- /.content -->
 

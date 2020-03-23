@@ -18,19 +18,21 @@
 
       {{ with $category }}
 
-      <section class="my-5">
+      <section class="section-assets">
+        {{ if not (eq .Page.Title "logo_official") }}
           <div class="row">
             <div class="col">
-              <h2 class="mb-3">
-                <a href="{{ .Page.RelPermalink }}">{{ replace .Page.Title "_" " " | title }}</a>
-              </h2>
-            </div>
-          </div>
+                <h2 class="category-title">
+                  <a href="{{ .Page.RelPermalink }}">{{ replace .Page.Title "_" " " | title }}</a>
+                </h2>
+              </div><!-- /.col -->
+          </div><!-- /.row -->
+          {{ end }}
           <div class="row">
             {{ range where .Page.RegularPages "Params.show_in_list" true }}
               {{ partial "block_thumbnail" (dict "page" . "ctx" $) }}
             {{ end }}
-          </div>
+          </div><!-- /.row -->
       </section>
 
       {{ end }}
