@@ -7,9 +7,9 @@
 
   <div class="col-12">
 
-    <a class="block block-details" href="{{$page.RelPermalink}}">
+    <a class="block block-details bg-white" href="{{$page.RelPermalink}}">
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-4">
           <div class="block-details-image">
             <img src="{{ partial `asset-image` $page | safeHTMLAttr }}" />
           </div>
@@ -19,7 +19,7 @@
             {{ $page.Params.title }}
           </div>
         </div><!-- /.col -->
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="block-details-button">
             <button class="btn btn-bty btn-blue icon-right">View file<i class="far fa-arrow-right"></i></button>
           </div>

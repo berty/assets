@@ -69,10 +69,8 @@ a.block-thumbnail:hover {
 }
 
 .block-details {
-	padding:0;
 	.block-details-image {
 		display:block;
-		margin:30px 0 30px 40px;
 		height:60px;
 		img {
 			height:100%;
@@ -82,11 +80,9 @@ a.block-thumbnail:hover {
 	}
 	.block-details-info {
 		color:#383b62;
-		padding:45px 0 40px 20px;
 		font-size:1rem;
 	}
 	.block-details-button {
-		padding: 38px 40px 38px 5px;
 		text-align:right;
 	}
 	&:hover,
@@ -108,15 +104,7 @@ a.block-thumbnail:hover {
     	border-radius:8px;
 	}
 }
-.section-single {
-	margin:-120px 0 100px;
-	.block-details {
-		position:absolute;
-		width:96%;
-		bottom:0;
-		right:15px;
-	}
-}
+
 .section-related {
 	.block-details {
 		margin-bottom: 40px;
@@ -142,6 +130,99 @@ h2.category-title {
 		&:hover,
 		&:focus {
 			color:#3f49ea;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.section-single {
+		margin:-120px 0 100px;
+		.block-details {
+			background-color:#FFF;
+			box-shadow: 0 6px 15px rgba(171,174,209,.3);
+			border-radius:12px;
+			position:absolute;
+			width:96%;
+			bottom:0;
+			right:15px;
+		}
+	}
+	.block-details {
+		padding:0;
+		.block-details-image {
+			margin:30px 0 30px 40px;
+		}
+		.block-details-info {
+			padding:45px 0 40px 20px;
+		}
+		.block-details-button {
+			padding: 38px 40px 38px 5px;
+			text-align:right;
+		}
+	}
+}
+@media (max-width: 767px) {
+	.subnav {
+    	display: none;
+	}
+	.section-actions.d-none {
+    	display: block;
+	}
+	a.block-action {
+    	padding: 20px;
+    	margin-bottom: 20px;
+	}
+	h4 {
+    	font-size: 1.3rem;
+	}
+	footer .nav-social .nav-item {
+    	flex-basis: 0;
+    	flex-grow: 1;
+    	text-align: center;
+	}
+	.section-single {
+		margin:-100px 0 50px;
+	}
+	.block-details {
+		padding:25px;
+		text-align:center;
+		.block-details-info {
+			margin-top:10px;
+		}
+		.block-details-button {
+			text-align:center;
+			margin-top:20px;
+		}
+	}
+	.section-related {
+		h3 {
+			text-align:center;
+		}
+		.block-details {
+			.block-details-button {
+				display:none;
+			}
+		}
+	}
+}
+@media (max-width: 991px) {
+	footer {
+    	padding-top: 0;
+    	.footer-rounded {
+    		padding: 50px 0 30px;
+		}
+	}
+}
+@media (min-width: 768px) and (max-width: 991px){
+	.section-single {
+		.block-details {
+			.block-details-info {
+    			padding: 25px 20px 10px 20px;
+			}
+			.block-details-button {
+    			padding: 10px 20px 25px 20px;
+    			text-align:left;
+			}
 		}
 	}
 }
