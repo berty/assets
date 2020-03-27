@@ -637,6 +637,92 @@ a.block-action {
   max-width:330px;
 }
 
+
+/* DOC CARD */
+.doc-card {
+  border-radius:$border-radius;
+  margin-bottom:40px;
+  padding:40px 35px;
+  .doc-card-inner {
+    display:block;
+    > div {
+      display:block;
+    }
+  }
+  &.m {
+    .doc-card-inner {
+      min-height:155px;
+    }
+    .doc-card-icon {
+      font-size:38px;
+      margin-bottom:15px;
+    }
+    .doc-card-button{
+      text-align:right;
+      margin-top:5px;
+      transition:all 0.3s;
+      i {
+        margin-left:8px;
+        font-size:90%;
+      }
+    }
+  }
+  &.s {
+    overflow:hidden;
+    .doc-card-inner {
+      min-height:131px;
+      margin:10px 0 15px;
+    }
+    .doc-card-icon {
+      font-size:22px;
+      margin-right:10px;
+    }
+  }
+  .doc-card-desc {
+    opacity:0.7;
+  }
+  .doc-card-tags {
+    margin-top:10px;
+    margin:20px -2px 0 -2px;
+    .tag {
+      display:inline-block;
+      margin:3px 1px;
+      font-size:80%;
+      padding:1px 6px;
+    }
+  }
+}
+.tag-card {
+  border-radius:$border-radius;
+  margin-bottom:40px;
+  padding:40px 35px;
+  .tag-card-inner {
+    min-height:29px;
+    .tag {
+      display:inline-block;
+    }
+  }
+  .tag-card-button{
+    float:right;
+    margin-top:1px;
+    i {
+      margin-left:8px;
+      font-size:90%;
+    }
+  }
+}
+a.doc-card,
+a.tag-card{
+  color: $color-fakeblack;
+  &:hover,
+  &:focus {
+    text-decoration:none;
+    color: $color-fakeblack;
+  }
+}
+
+/* DOC CARD */
+
 /* FOOTER */
 footer {
   font-size:95%;
