@@ -19,7 +19,7 @@
   {{- end }}
   
   {{- if in $resizable_assets $asset_type -}}
-    {{- $size := cond (ge $asset.Width 200) 200 $asset.Width -}}
+    {{- $size := cond (ge $asset.Width 800) 800 $asset.Width -}}
     {{- $asset = $asset.Resize (print $size "x") -}}
   {{- end -}}
 

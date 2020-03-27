@@ -851,3 +851,32 @@ footer {
   }
 }
 .display-none {display:none !important;}
+
+@media (max-width: 767px) {
+  .subnav {
+      display: none;
+  }
+  .section-actions.d-none {
+      display: block;
+  }
+  a.block-action {
+      padding: 20px;
+      margin-bottom: 20px;
+  }
+  h4 {
+      font-size: 1.3rem;
+  }
+  footer .nav-social .nav-item {
+      flex-basis: 0;
+      flex-grow: 1;
+      text-align: center;
+  }
+}
+@media (max-width: 991px) {
+  footer {
+      padding-top: 0;
+      .footer-rounded {
+        padding: 50px 0 30px;
+    }
+  }
+}
