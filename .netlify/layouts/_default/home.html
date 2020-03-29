@@ -1,0 +1,71 @@
+{{ .Scratch.Set "body-class" "page-single wh" }}
+{{ $categories := .Site.Taxonomies.categories }}
+
+{{ partial "head" . }}
+
+<header class="header-rounded large bg-blue gradient bg-assets">
+  <div class="container text-center">
+    <h1 class="text-shadow">Assets</h1>
+    <h3 class="text-shadow subtitle">All the Berty graphical resources</h3>
+  </div><!-- /.container -->
+</header>
+
+<div class="content">
+  <div class="container">
+    <section class="section-assets">
+
+      <div class="row">
+        {{ range .Site.Params.category_cards }}
+        {{ $category := index $categories .name }}
+        <div class="col-lg-4 col-md-6">
+          <a class="block bg-white doc-card m" href="{{ $category.Page.RelPermalink }}">
+            <div class="doc-card-inner">
+              <div class="doc-card-icon c-blue">
+                <i class="fal fa-book"></i>
+              </div>
+              <h4 class="doc-card-title text">
+                {{ replace $category.Page.Title "_" " " | title }}
+              </h4>
+              <div class="doc-card-desc text">
+                {{ .description }}
+              </div>
+            </div>
+            <div class="doc-card-button c-blue">
+              Show all<i class="far fa-chevron-right"></i>
+            </div>
+          </a>
+        </div>
+        {{ end }}
+      </div>
+
+    {{ range $cat := .Site.Params.category_order }}
+    {{ if not (in $.Site.Params.category_cards $cat) }}
+    {{ $category := index $categories $cat }}
+    {{ with $category }}
+
+    {{ if not (eq .Page.Title "logo_official") }}
+
+    <div class="row">
+      <div class="col">
+        <h2 class="category-title">
+          <a href="{{ .Page.RelPermalink }}">{{ replace .Page.Title "_" " " | title }}</a>
+        </h2>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+
+    {{ end }}
+    <div class="row">
+      {{ range where .Page.RegularPages "Params.show_in_list" true }}
+        {{ partial "block_thumbnail" (dict "page" . "ctx" $) }}
+      {{ end }}
+    </div><!-- /.row -->
+
+    {{ end }}
+    {{ end }}
+    {{ end }}
+
+    </section>
+  </div><!-- /.container -->
+</div><!-- /.content -->
+
+{{ partial "footer" . }}

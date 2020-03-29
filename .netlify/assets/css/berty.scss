@@ -925,6 +925,7 @@ footer {
 /* block transformation only for desktop */
 @media (hover: hover) {
   a.block-link,
+  a.doc-card,
   a.block-action {
     -webkit-transition: 0.3s ease-in-out;
     -moz-transition: 0.3s ease-in-out;
@@ -933,6 +934,23 @@ footer {
       transform: translateY(-5px);
       box-shadow:$box-shadow-hover;
     }
+  }
+  a.doc-card.m {
+    .doc-card-button {
+      opacity:0;
+    }
+    &:hover,
+    &:focus {
+      .doc-card-button {
+        opacity:1;
+      }
+    }
+  }
+}
+
+@media (hover: none) {
+  a.doc-card.m .doc-card-button {
+    display:none;
   }
 }
 .display-none {display:none !important;}
