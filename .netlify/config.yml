@@ -8,7 +8,17 @@ author:
 
 
 params:
-  category_order: ['logo_official', 'animation', 'logo_variations', 'app_icons', 'favicons', 'avatars', 'various_usage', 'thumbnails', 'website', 'app', 'yolo', 'file_icons']
+  category_order: ['logo_official', 'animation', 'logo_variations', 'app_icons', 'favicons', 'avatars', 'various_usage', 'thumbnails', 'file_icons']
+  category_cards: 
+    - name: app
+      icon: fal fa-book
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    - name: website
+      icon: fal fa-book
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    - name: yolo
+      icon: fal fa-book
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
   # Map mimetype to placeholder icons
   nonimage_icons:
