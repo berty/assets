@@ -37,9 +37,7 @@
         </div>
         {{ end }}
       </div>
-
     {{ range $cat := .Site.Params.category_order }}
-    {{ if not (in $.Site.Params.category_cards $cat) }}
     {{ $category := index $categories $cat }}
     {{ with $category }}
 
@@ -60,7 +58,6 @@
       {{ end }}
     </div><!-- /.row -->
 
-    {{ end }}
     {{ end }}
     {{ end }}
 
