@@ -14,29 +14,6 @@
   <div class="container">
     <section class="section-assets">
 
-      <div class="row">
-        {{ range .Site.Params.category_cards }}
-        {{ $category := index $categories .name }}
-        <div class="col-lg-4 col-md-6">
-          <a class="block bg-white doc-card m" href="{{ $category.Page.RelPermalink }}">
-            <div class="doc-card-inner">
-              <div class="doc-card-icon c-blue">
-                <i class="fal fa-book"></i>
-              </div>
-              <h4 class="doc-card-title text">
-                {{ replace $category.Page.Title "_" " " | title }}
-              </h4>
-              <div class="doc-card-desc text">
-                {{ .description }}
-              </div>
-            </div>
-            <div class="doc-card-button c-blue">
-              Show all<i class="far fa-chevron-right"></i>
-            </div>
-          </a>
-        </div>
-        {{ end }}
-      </div>
     {{ range $cat := .Site.Params.category_order }}
     {{ $category := index $categories $cat }}
     {{ with $category }}
@@ -62,6 +39,40 @@
     {{ end }}
 
     </section>
+    <section class="section-cards">
+    <div class="row">
+      <div class="col">
+        <h2 class="category-title">
+          Other categories
+        </h2>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+      <div class="row">
+        {{ range .Site.Params.category_cards }}
+        {{ $category := index $categories .name }}
+        <div class="col-lg-4 col-md-6">
+          <a class="block bg-white doc-card m" href="{{ $category.Page.RelPermalink }}">
+            <div class="doc-card-inner">
+              <div class="doc-card-icon c-blue">
+                <i class="{{ .icon }}"></i>
+              </div>
+              <h4 class="doc-card-title text">
+                {{ replace $category.Page.Title "_" " " | title }}
+              </h4>
+              <div class="doc-card-desc text">
+                {{ .description }}
+              </div>
+            </div>
+            <div class="doc-card-button c-blue">
+              Show all<i class="far fa-chevron-right"></i>
+            </div>
+          </a>
+        </div><!-- /.col -->
+        {{ end }}
+      </div><!-- /.row -->
+
+    </section>
+
   </div><!-- /.container -->
 </div><!-- /.content -->
 

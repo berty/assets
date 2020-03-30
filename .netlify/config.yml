@@ -9,16 +9,16 @@ author:
 
 params:
   category_order: ['logo_official', 'animation', 'logo_variations', 'app_icons', 'favicons', 'avatars', 'various_usage', 'thumbnails', 'file_icons']
-  category_cards: 
+  category_cards:
     - name: app
-      icon: fal fa-book
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      icon: fal fa-mobile
+      description: Icons, illustrations, flows, mockups...
     - name: website
-      icon: fal fa-book
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      icon: fal fa-globe
+      description: Blogposts, backgrounds, icons, illustrations, thumbnails...
     - name: yolo
-      icon: fal fa-book
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      icon: fal fa-layer-group
+      description: Icons, mockups...
 
   # Map mimetype to placeholder icons
   nonimage_icons:
