@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "glob": "^7.1.5",
-    "mime-types": "^2.1.24"
+    "glob": "^7.1.6",
+    "mime-types": "^2.1.24",
+    "postcss-cli": "^7.1.0"
   }
 }

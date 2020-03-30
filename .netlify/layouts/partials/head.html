@@ -3,12 +3,32 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="pinterest" content="nopin">
         <title>{{ .Title }}</title>
 
+        <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
+        <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+        <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
+        <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
         <!-- Styling -->
-        {{ $bootstrap := resources.Get "css/bootstrap.min.css" }}
-        {{ $main := resources.Get "css/main.css" }}
-        {{ $style := slice $bootstrap $main | resources.Concat "bundle.css" | minify | fingerprint }}
-        <link rel="stylesheet" type="text/css" href="{{ $style.RelPermalink }}">
+        {{ $bootstrap := resources.Get "/css/bootstrap.min.scss" }}
+        {{ $fontAwesome := resources.Get "/css/fontawesome.scss" }}
+        {{ $berty := resources.Get "/css/berty.scss" }}
+        {{ $main := resources.Get "/css/main.scss" }}
+        {{ $style := slice $bootstrap $fontAwesome $berty $main | resources.Concat "bundle.scss" | toCSS (dict "outputStyle" "compressed")| postCSS | minify | fingerprint }}
+        {{ $styleContent := replace $style.Content "!important" "" }}
+        {{ $styleContent := replace $styleContent `@charset "UTF-8";` `` }} <!-- Reason for this line is because for an unknown reason it prefixes the CSS output with '@charset "UTF-8"' -->
+        <style {{ if ($.Scratch.Get `isAmpPage`) }}amp-custom{{end}}>
+            {{ $styleContent | safeCSS }}
+        </style>
+
+        <!-- load fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap" rel="stylesheet">
+
     </head>
-    <body>
+    <body{{with .Scratch.Get "body-class"}} class="{{.}}"{{end}} tabindex="-1" role="dialog">
+
+    {{ partial "sidebar.html" . }}
+    {{ partial "navbar.html" . }}
