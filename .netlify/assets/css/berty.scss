@@ -926,7 +926,8 @@ footer {
 @media (hover: hover) {
   a.block-link,
   a.doc-card,
-  a.block-action {
+  a.block-action,
+  a.block-thumbnail {
     -webkit-transition: 0.3s ease-in-out;
     -moz-transition: 0.3s ease-in-out;
     transition:0.3s ease-in-out;

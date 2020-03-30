@@ -7,14 +7,6 @@
 	height: auto;
 	margin-bottom:30px;
 }
-a.block-thumbnail {
-	transition: all .8s ease;
-}
-a.block-thumbnail:hover {
-	box-shadow: 0 0 1px rgba(0,0,0,.03), 0 8px 26px -4px rgba(0,0,0,.1);
-    transition: all .3s ease;
-    transform: scale(1.05) translateY(-2.5%);
-}
 .block-thumbnail .block-inner {
 	display: block;
     width: 100%;
@@ -73,8 +65,10 @@ a.block-thumbnail:hover {
 		display:block;
 		height:60px;
 		img {
-			height:100%;
+			height:auto;
 			width:auto;
+			max-height:100%;
+			max-width:100%;
 			border-radius:8px;
 		}
 	}
