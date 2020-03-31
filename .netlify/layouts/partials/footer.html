@@ -1,0 +1,67 @@
+<footer class="overflow-hidden">
+	<div class="footer-rounded bg-blue text-white">
+		<div class="container">
+			<div class="row row-top">
+				<div class="col-md-5">
+					{{ partial "img" (dict "ctx" . "class" "img-fluid img-bt" "src" "/img/berty_technologies_logo.png" "alt" "Berty Technologies" "width" "352" "height" "145") }}
+					<br />
+					<p>The Berty app is developped by the NGO <a href="https://berty.tech/about">Berty Technologies</a>.</p>
+				</div><!-- /.col -->
+				<div class="col-md-7">
+					<div class="row">
+						<div class="col-4 col-links">
+							<h5><a href="https://berty.tech/features">Features</a></h5>
+							<h5><a href="https://berty.tech/features">Challenges</a></h5>
+							<h5><a href="https://berty.tech/faq">FAQ</a></h5>
+							<h5><a href="https://berty.tech/blog">Blog</a></h5>
+							<!--<h5>The difference</h5>
+							<ul class="list-unstyled text-small">
+								<li><a href="/features">Features</a></li>
+								<li><a href="#">Security</a></li>
+								<li><a href="/docs/white-paper">White paper</a></li>
+								<li><a href="/faq">FAQ</a></li>
+							</ul>-->
+						</div><!-- /.col -->
+						<div class="col-4 col-links">
+							<h5>Developers</h5>
+							<ul class="list-unstyled text-small">
+								<li><a href="https://berty.tech/docs">Docs</a></li>
+								<li><a href="https://berty.tech/docs#projects">Our projects</a></li>
+								<li><a href="https://berty.tech/contribute">Contribute</a></li>
+								<li><a href="https://berty.tech/contribute#projects-we-love">Projects we love</a></li>
+							</ul>
+						</div><!-- /.col -->
+						<div class="col-4 col-links">
+							<h5><a href="https://berty.tech/about">About us</a></h5>
+							<ul class="list-unstyled text-small">
+								<li><a href="https://berty.tech/jobs">Jobs</a></li>
+								<li><a href="https://berty.tech/newsletter">Newsletter</a></li>
+								<li><a href="https://berty.tech/contact">Contact</a></li>
+								<li><a href="https://berty.tech/press">Press</a></li>
+								<li><a href="/">Assets</a></li>
+							</ul>
+						</div><!-- /.col -->
+					</div><!-- /.row -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+			<div class="row row-bottom">
+				<div class="col-lg-8 col-md-7 footer-legal">
+					<small>Berty™ is a registered trademark © 2018-2020 Berty Technologies - All right reserved - <a href="https://berty.tech/terms">Terms & Conditions</a> - <a href="https://berty.tech/privacy-policy">Privacy Policy</a></small>
+				</div><!-- /.col -->
+				<div class="col-lg-4 col-md-5">
+					{{ partial "nav_social" . }}
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</div><!-- .footer-rounded -->
+</footer>
+
+{{ if not ($.Scratch.Get "isAmpPage") }}
+{{ $jQuery := resources.Get "/js/jquery-3.4.1.min.js" }}
+{{ $bootstrap := resources.Get "/js/bootstrap.min.js" }}
+{{ $js := slice $jQuery $bootstrap | resources.Concat "bundle.js" | minify | fingerprint }}
+<script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
+{{ end }}
+
+</body>
+</html>

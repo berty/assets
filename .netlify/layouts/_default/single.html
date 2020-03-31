@@ -1,38 +1,69 @@
 {{ $asset := resources.Get .Params.file_path }}
 
+{{ .Scratch.Set "body-class" "page-single wh" }}
+
 {{ partial "head" . }}
 
-<div class="container">
-  <div class="d-flex flex-column text-center justify-content-center align-content-center min-vh-100">
-    
-    <div>
-      <img style="max-width: 800px;" src="{{ partial `asset-image` . }}">
-    </div>
+<header class="header-rounded large bg-blue gradient bg-assets">
+  <div class="container">
+    <div class="subnav">
+       <a class="btn btn-bty btn-transparent" href="/"><i class="far fa-arrow-left"></i>Back to list</a>
+    </div><!-- /.subnav -->
+  </div><!-- /.container -->
+</header>
 
-    <h3>{{ .Params.file_name }}</h3>
+<div class="content">
+  <div class="container">
+    <section class="section-single">
 
-    <div>
-      <a class="btn btn-primary" href="{{ $asset.RelPermalink }}" download>Download</a>
-    </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="block block-large bg-white">
+            <img src="{{ partial `asset-image` . }}">
+          </div>
+        </div><!-- /.col -->
+        <div class="col-lg-6">
+          <div class="block-details">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="block-details-info">
+                  {{ .Params.file_name }}
+                </div>
+              </div><!-- /.col -->
+              <div class="col-lg-6">
+                <div class="block-details-button">
+                  <a class="btn btn-bty btn-blue icon-left" href="{{ $asset.RelPermalink }}"><i class="far fa-arrow-circle-down"></i>Download file</a>
+                </div>
+              </div><!-- /.col -->
+            </div><!-- /.row -->
+          </div><!-- /.block-details -->
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </section>
 
+    <section class="section-related">
     {{ $related_assets := where .Site.RegularPages "Params.folder_id" .Params.folder_id }}
     {{ if gt (len $related_assets) 1 }}
     <div class="row">
 
       <div class="col-md-12 text-left my-4">
-        <h4>Related assets</h4>
+        <h3>Related assets</h3>
       </div>
 
       {{ range where .Site.RegularPages "Params.folder_id" .Params.folder_id }}
         {{ if ne .Params.file_name $.Params.file_name }}
-        {{ partial "thumbnail" (dict "page" . "ctx" $) }}
+        {{ partial "block_details" (dict "page" . "ctx" $) }}
         {{ end }}
       {{ end }}
 
     </div>
     {{ end }}
+    </section>
 
-  </div>
-</div>
+    <section class="section-actions d-none"> <a class="block block-action bg-blue bg-gradient" href="/"> <h4><i class="far fa-arrow-left left"></i>Back to list</h4> </a> </section>
 
-{{ partial "foot" . }}
+  </div><!-- /.container -->
+</div><!-- /.content -->
+
+{{ partial "footer" . }}
+

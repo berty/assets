@@ -1,15 +1,32 @@
 title: Berty Assets
 baseURL: https://assets.berty.tech
 
+author:
+  name: Berty Technologies
+  email: contact@berty.tech
+  logo: /img/berty_logo.png
+
+
 params:
-  category_order: ['logo_official', 'animation', 'logo_variations', 'various_usage']
+  category_order: ['logo_official', 'animation', 'logo_variations', 'app_icons', 'favicons', 'avatars', 'various_usage', 'thumbnails', 'file_icons']
+  category_cards:
+    - name: app
+      icon: fal fa-mobile
+      description: Icons, illustrations, flows, mockups...
+    - name: website
+      icon: fal fa-globe
+      description: Blogposts, backgrounds, icons, illustrations, thumbnails...
+    - name: yolo
+      icon: fal fa-layer-group
+      description: Icons, mockups...
 
   # Map mimetype to placeholder icons
   nonimage_icons:
-    plain: images/plain-icon.png
-    vnd.adobe.photoshop: images/psd-icon.png
-    postscript: images/ai-icon.png
-    zip: images/zip-icon.png
+    plain: images/icon_txt.svg
+    vnd.adobe.photoshop: images/icon_psd.svg
+    postscript: images/icon_ai.svg
+    zip: images/icon_zip.svg
+    sketch: images/icon_sketch.svg
 
   # Show only assets with below mimetypes
   shown_assets:
@@ -22,3 +39,15 @@ params:
     - "vnd.adobe.photoshop"
     - "postscript"
     - "zip"
+    - "sketch"
+
+  organizationName: Berty Technologies
+  organizationLogo: /img/berty_logo_square-1200x1200.png
+
+  navbarLogo: /img/berty_logo.svg
+
+  logoSVG: /img/berty_logo.svg
+  logoPNG: /img/berty_logo.png
+  defaultFeaturedImage: images/berty_assets.png
+
+relativeURLs: true
