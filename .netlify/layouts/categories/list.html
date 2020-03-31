@@ -25,13 +25,20 @@
       {{ $subcategory := index $.Site.Taxonomies.categories ((index .Pages 0).Params.subcategory_id) }}
       {{ $subcategory_title := replace (replaceRE ".*__([^/]+)" "$1" $subcategory.Page.Title) "_" " " | title }}
 
-      <div class="row">
-        <div class="col">
-          <h2 class="category-title">
-            <a href="{{ $subcategory.Page.RelPermalink }}">{{ $subcategory_title }}</a>
-          </h2>
-        </div><!-- /.col -->
-      </div><!-- /.row -->
+
+	{{ if not (eq $subcategory_title "Backgrounds" ) }}
+		{{ if not (eq $subcategory_title "Illustrations" ) }}
+
+	      <div class="row">
+	        <div class="col">
+	          <h2 class="category-title">
+	            <a href="{{ $subcategory.Page.RelPermalink }}">{{ $subcategory_title }}</a>
+	          </h2>
+	        </div><!-- /.col -->
+	      </div><!-- /.row -->
+
+		{{ end }}
+	{{ end }}
 
       <div class="row">
         {{ range where .Pages "Params.show_in_list" true }}
