@@ -49,5 +49,7 @@ params:
   logoSVG: /img/berty_logo.svg
   logoPNG: /img/berty_logo.png
   defaultFeaturedImage: /img/berty_assets.png
+  favicon: /img/favicon.png
+  description: All the Berty graphical resources
 
 relativeURLs: true
