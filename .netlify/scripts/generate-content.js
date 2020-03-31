@@ -25,6 +25,8 @@ const options = {
   ignore: ['_archives/**', 'docs/**', 'LICENSE', 'README.md']
 };
 
+const categoriesWithSubcategories = ['app', 'yolo', 'website'];
+
 const folders = glob.sync('**/', options);
 
 folders.forEach(folder => {
@@ -45,6 +47,11 @@ folders.forEach(folder => {
 
   const category = folder
     .split('/')[0];
+
+  const subcategory = folder
+    .split('/')[1];
+
+  const subcategoryId = `${category}__${subcategory}`;
 
   const filesToShowinList = mainFile
     ? [mainFile]
@@ -78,11 +85,16 @@ folders.forEach(folder => {
           mediaMainType = mediaTypeSplit[0],
           mediaSubType = mediaTypeSplit[1];
 
+    const categories = [category];
+    if (categoriesWithSubcategories.indexOf(category) > -1) {
+      categories.push(subcategoryId);
+    }
+
     let fm = "---\n";
     fm += `title: ${title}\n`;
     fm += `show_in_list: ${filesToShowinList.includes(file)}\n`;
     fm += `folder_id: ${folderId}\n`;
-    fm += `categories: ["${category}"]\n`;
+    fm += `categories: [${categories.join(',')}]\n`;
     fm += `media_type: ${mediaType}\n`;
     fm += `media_type_main: ${mediaMainType}\n`;
     fm += `media_type_sub: ${mediaSubType}\n`;
@@ -90,6 +102,7 @@ folders.forEach(folder => {
     fm += `parent_folder_title: ${parentFolderTitle}\n`;
     fm += `file_path: /files/${filename}\n`;
     fm += `file_name: ${file}\n`;
+    fm += `subcategory_id: ${subcategoryId}\n`;
     fm += '---';
 
     fs.writeFileSync(path.join(contentDir, `${filename}.md`), fm);
