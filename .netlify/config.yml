@@ -22,11 +22,11 @@ params:
 
   # Map mimetype to placeholder icons
   nonimage_icons:
-    plain: images/icon_txt.svg
-    vnd.adobe.photoshop: images/icon_psd.svg
-    postscript: images/icon_ai.svg
-    zip: images/icon_zip.svg
-    sketch: images/icon_sketch.svg
+    plain: /img/icon_txt.svg
+    vnd.adobe.photoshop: /img/icon_psd.svg
+    postscript: /img/icon_ai.svg
+    zip: /img/icon_zip.svg
+    sketch: /img/icon_sketch.svg
 
   # Show only assets with below mimetypes
   shown_assets:
@@ -48,6 +48,6 @@ params:
 
   logoSVG: /img/berty_logo.svg
   logoPNG: /img/berty_logo.png
-  defaultFeaturedImage: images/berty_assets.png
+  defaultFeaturedImage: /img/berty_assets.png
 
 relativeURLs: true
