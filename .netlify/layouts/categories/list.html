@@ -2,6 +2,9 @@
 
 {{ partial "head" . }}
 
+{{ $category_title := replace (replaceRE ".*__([^/]+)" "$1" .Title) "_" " " | title }}
+{{ $categories_with_subsections := apply .Site.Params.category_cards "index" "." "name" }}
+
 <header class="header-rounded large bg-blue gradient bg-assets">
   <div class="container">
     <div class="subnav">
@@ -16,11 +19,36 @@
 <div class="content">
   <div class="container">
 	<section class="section-category">
-	  <div class="row">
-	    {{ range where .RegularPages "Params.show_in_list" true }}
-	      {{ partial "block_thumbnail" (dict "page" . "ctx" $) }}
-	    {{ end }}
-	  </div>
+	  
+    {{ if in $categories_with_subsections .Title }}
+      {{ range .Page.RegularPages.GroupByParam "subcategory_id" }}
+      {{ $subcategory := index $.Site.Taxonomies.categories ((index .Pages 0).Params.subcategory_id) }}
+      {{ $subcategory_title := replace (replaceRE ".*__([^/]+)" "$1" $subcategory.Page.Title) "_" " " | title }}
+
+      <div class="row">
+        <div class="col">
+          <h2 class="category-title">
+            <a href="{{ $subcategory.Page.RelPermalink }}">{{ $subcategory_title }}</a>
+          </h2>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+
+      <div class="row">
+        {{ range where .Pages "Params.show_in_list" true }}
+          {{ partial "block_thumbnail" (dict "page" . "ctx" $) }}
+        {{ end }}
+      </div>
+
+    {{ end }}
+
+    {{ else }}
+      <div class="row">
+      {{ range where .RegularPages "Params.show_in_list" true }}
+        {{ partial "block_thumbnail" (dict "page" . "ctx" $) }}
+      {{ end }}
+      </div>
+    {{ end }}
+      
 	</section>
   </div><!-- /.container -->
 </div><!-- /.content -->
