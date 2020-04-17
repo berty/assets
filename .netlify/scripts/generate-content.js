@@ -30,7 +30,7 @@ const categoriesWithSubcategories = ['app', 'yolo', 'website'];
 const folders = glob.sync('**/', options);
 
 folders.forEach(folder => {
-  
+
   folder = folder
     .replace(/.$/, '');
 
@@ -65,7 +65,7 @@ folders.forEach(folder => {
 
   files.forEach(file => {
     const title = path.basename(file);
-    const filename = folder 
+    const filename = folder
       .replace(`${category}/`, '')
       .replace(/\/+/g, '-')
       .concat(`--${file}`);
@@ -80,7 +80,7 @@ folders.forEach(folder => {
         return;
       }
     }
-    
+
     const mediaTypeSplit = mediaType.split('/'),
           mediaMainType = mediaTypeSplit[0],
           mediaSubType = mediaTypeSplit[1];
