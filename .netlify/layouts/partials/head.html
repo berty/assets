@@ -75,6 +75,21 @@
         <meta property="twitter:description" content="{{ $description | truncate 195 }}">
         <meta property="twitter:image" content="{{ $image.Permalink }}">
 
+        {{ if not .Site.IsServer }}
+        <script type="text/javascript">
+        var _paq = window._paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bertytech.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '3']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/bertytech.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+        </script>
+        {{ end }}
+
     </head>
     <body{{with .Scratch.Get "body-class"}} class="{{.}}"{{end}} tabindex="-1" role="dialog">
 
