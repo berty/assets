@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row row-top">
 				<div class="col-md-5">
-					{{ partial "img" (dict "ctx" . "class" "img-fluid img-bt" "src" "/img/berty_technologies_logo.png" "alt" "Berty Technologies" "width" "352" "height" "145") }}
+					{{ partial "img" (dict "ctx" . "class" "img-fluid img-bt" "src" (resources.Get "/img/berty_technologies_logo.png").RelPermalink "alt" "Berty Technologies" "width" "352" "height" "145") }}
 					<br />
 					<p>The Berty app is developped by the NGO <a href="https://berty.tech/about">Berty Technologies</a>.</p>
 				</div><!-- /.col -->
@@ -13,6 +13,7 @@
 							<h5><a href="https://berty.tech/features">Features</a></h5>
 							<h5><a href="https://berty.tech/features">Challenges</a></h5>
 							<h5><a href="https://berty.tech/faq">FAQ</a></h5>
+							<h5><a href="https://berty.tech/blog">Community</a></h5>
 							<h5><a href="https://berty.tech/blog">Blog</a></h5>
 							<!--<h5>The difference</h5>
 							<ul class="list-unstyled text-small">
@@ -38,6 +39,7 @@
 								<li><a href="https://berty.tech/newsletter">Newsletter</a></li>
 								<li><a href="https://berty.tech/contact">Contact</a></li>
 								<li><a href="https://berty.tech/press">Press</a></li>
+								<li><a href="https://berty-tech.myshopify.com/">Boutique</a></li>
 								<li><a href="/">Assets</a></li>
 							</ul>
 						</div><!-- /.col -->

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark{{with .Scratch.Get "navbar-class"}} {{.}}{{end}}">
     <div class="container">
         <a class="navbar-brand" href="https://berty.tech">
-            {{ partial "img" (dict "ctx" . "class" "img-berty" "width" "150" "height" "45" "alt" "Berty Technologies" "src" "/img/berty_mono.svg")}}  
+            {{ partial "img" (dict "ctx" . "class" "img-berty" "width" "150" "height" "45" "alt" "Berty Technologies" "src" (resources.Get "/img/berty_mono.svg").RelPermalink)}}  
         </a>
         <button on="tap:sidebar.open" class="navbar-toggler" type="button" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
             <i class="far fa-bars"></i>
@@ -114,6 +114,11 @@
                         <span class="title">Press</span>
                         <span class="subtitle">Press documents and medias</span>
                       </a>
+                      <a class="dropdown-item l" href="https://berty-tech.myshopify.com/">
+                        <i class="fal fa-store c-blue"></i>
+                        <span class="title">Boutique</span>
+                        <span class="subtitle">Buy t-shirts and goodies</span>
+                      </a>
                       <a class="dropdown-item l" href="/">
                         <i class="fal fa-photo-video c-blue"></i>
                         <span class="title">Assets</span>
@@ -126,6 +131,9 @@
                         <span class="subtitle">Berty App for iOS, android, desktop...</span>
                       </a>-->
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://berty.tech/community">Community</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://berty.tech/blog">Blog</a>

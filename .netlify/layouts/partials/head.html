@@ -27,6 +27,69 @@
         <!-- load fonts -->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap" rel="stylesheet">
 
+        <!-- Favicon -->
+        {{ $favicon := resources.Get .Site.Params.favicon }}
+        <!-- generics -->
+        <link rel="shortcut icon" href="{{ relURL "/favicon/favicon.ico" }}">
+        <link rel="icon" href="{{ ($favicon.Resize `32x32`).RelPermalink }}" sizes="32x32">
+        <link rel="icon" href="{{ ($favicon.Resize `57x57`).RelPermalink }}" sizes="57x57">
+        <link rel="icon" href="{{ ($favicon.Resize `76x76`).RelPermalink }}" sizes="76x76">
+        <link rel="icon" href="{{ ($favicon.Resize `96x96`).RelPermalink }}" sizes="96x96">
+        <link rel="icon" href="{{ ($favicon.Resize `128x128`).RelPermalink }}" sizes="128x128">
+        <link rel="icon" href="{{ ($favicon.Resize `192x192`).RelPermalink }}" sizes="192x192">
+        <link rel="icon" href="{{ ($favicon.Resize `228x228`).RelPermalink }}" sizes="228x228">
+        <!-- Android -->
+        <link rel="shortcut icon" href="{{ ($favicon.Resize `196x196`).RelPermalink }}" sizes="196x196">
+        <!-- iOS -->
+        <link rel="apple-touch-icon" href="{{ ($favicon.Resize `120x120`).RelPermalink }}" sizes="120x120">
+        <link rel="apple-touch-icon" href="{{ ($favicon.Resize `152x152`).RelPermalink }}" sizes="152x152">
+        <link rel="apple-touch-icon" href="{{ ($favicon.Resize `180x180`).RelPermalink }}" sizes="180x180">
+        <!-- Windows 8 IE 10-->
+        <meta name="msapplication-TileColor" content="#3f49ea">
+        <meta name="msapplication-TileImage" content="{{ ($favicon.Resize `144x144`).RelPermalink }}">
+
+        <!-- Alternative Outputs (RSS etc.) -->
+        {{ range .AlternativeOutputFormats -}}
+        {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+        {{ end -}}
+
+        {{ $title := .Title }}
+        {{ $description := .Site.Params.description }}
+        {{ $image := resources.Get .Site.Params.defaultFeaturedImage }}
+
+        <meta name="description" content="{{ $description }}">
+
+        <!-- Open Graph -->
+        <meta property="og:description" content="{{ $description }}">
+        <meta property="og:url" content="{{ .Permalink }}" />
+        <meta property="og:site_name" content="{{ .Site.Title }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="{{ $image.Permalink }}" />
+        <meta property="og:image:width" content="{{ $image.Width }}" />
+        <meta property="og:image:height" content="{{ $image.Height }}" />
+        <meta property="og:title" content="{{ $title }}" />
+
+        <!-- Twitter Card -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:title" content="{{ $title | truncate 65 }}">
+        <meta property="twitter:description" content="{{ $description | truncate 195 }}">
+        <meta property="twitter:image" content="{{ $image.Permalink }}">
+
+        {{ if not .Site.IsServer }}
+        <script type="text/javascript">
+        var _paq = window._paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://bertytech.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '3']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/bertytech.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+        </script>
+        {{ end }}
+
     </head>
     <body{{with .Scratch.Get "body-class"}} class="{{.}}"{{end}} tabindex="-1" role="dialog">
 
